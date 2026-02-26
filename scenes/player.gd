@@ -5,12 +5,12 @@ extends CharacterBody2D
 @export var crouch_speed = 100
 @export var jump_speed = -300
 
+var jump_count = 0
+var max_jumps = 2
+
 @onready var anim = $Animation
 @onready var normal_collision = $NormalCollision
 @onready var crouch_collision = $CrouchCollision
-
-var jump_count = 0
-var max_jumps = 2
 
 
 func _ready():

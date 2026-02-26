@@ -12,8 +12,10 @@ extends CharacterBody2D
 var jump_count = 0
 var max_jumps = 2
 
+
 func _ready():
 	crouch_collision.disabled = true
+
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -21,12 +23,12 @@ func _physics_process(delta):
 	else:
 		jump_count = 0
 
-	if Input.is_action_just_pressed('ui_up') and jump_count < max_jumps:
+	if Input.is_action_just_pressed("ui_up") and jump_count < max_jumps:
 		velocity.y = jump_speed
 		jump_count += 1
 
 	var is_crouching = Input.is_action_pressed("ui_down") and is_on_floor()
-	
+
 	if is_crouching:
 		normal_collision.disabled = true
 		crouch_collision.disabled = false

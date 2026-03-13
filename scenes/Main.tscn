@@ -2,6 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://ds60n6krsavle" path="res://scenes/Ground.tscn" id="1_elqb8"]
 [ext_resource type="PackedScene" uid="uid://dvlyhuf4uyjqv" path="res://scenes/Player.tscn" id="2_rvslj"]
+[ext_resource type="PackedScene" uid="uid://c1unii723si3g" path="res://scenes/boom_box.tscn" id="3_0bbpv"]
+[ext_resource type="AudioStream" uid="uid://cuhjphshxlk00" path="res://assets/About_theme.wav" id="4_rarhs"]
+[ext_resource type="Script" uid="uid://xixhd3tn2oey" path="res://scenes/theme_song.gd" id="5_script"]
 
 [node name="Root" type="Node2D" unique_id=918599496]
 
@@ -16,3 +19,12 @@ position = Vector2(576, 394)
 
 [node name="Player" parent="." unique_id=818966392 instance=ExtResource("2_rvslj")]
 position = Vector2(155, 217)
+
+[node name="BoomBox" parent="." unique_id=1070650489 instance=ExtResource("3_0bbpv")]
+position = Vector2(859, 257)
+scale = Vector2(2, 2)
+
+[node name="ThemeSong" type="AudioStreamPlayer2D" parent="." unique_id=293973270]
+stream = ExtResource("4_rarhs")
+autoplay = true
+script = ExtResource("5_script")

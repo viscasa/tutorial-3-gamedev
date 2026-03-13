@@ -14,3 +14,17 @@
 3. Flip Sprite :
     
     Cara implementasinya adalah dengan menambahkan variabel flip_h. Jika flip_h true, player akan bergerak ke kiri. Jika flip_h false, player akan bergerak ke kanan. 
+
+# Tutorial 5
+
+## Sound
+
+Credit to Growtopia (https://growtopia.fandom)
+
+1. Theme Song :
+
+    Saya menambahkan musik yang looping terus (musiknya dari lobby Growtopia :D)
+
+2. Boombox :
+
+    Saya menambahkan Boombox yang bisa memutar musik dan bisa dimatikan dengan menekan tombol F. Terdapat fitur juga ketika boombox nyala, jika player menjauh suaranya makin mengecil. Terdapat sfx bleep juga ketika menyalakan dan mematikan boombox.

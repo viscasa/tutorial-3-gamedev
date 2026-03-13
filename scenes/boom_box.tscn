@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://c1unii723si3g"]
+
+[ext_resource type="Script" uid="uid://b7txo366p54nb" path="res://scenes/boom_box.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://crr5bgeqjl0pi" path="res://assets/Boombox.png" id="1_wkqmm"]
+[ext_resource type="AudioStream" uid="uid://b3a87gygr4s8w" path="res://assets/Boombox.wav" id="2_6i3w5"]
+[ext_resource type="AudioStream" path="res://assets/BleepSFX.mp3" id="3_bleep"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbcuw"]
+atlas = ExtResource("1_wkqmm")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m65dv"]
+atlas = ExtResource("1_wkqmm")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgl3b"]
+atlas = ExtResource("1_wkqmm")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tdb8i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbcuw")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m65dv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgl3b")
+}],
+"loop": true,
+"name": &"playing",
+"speed": 4.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wkqmm"]
+radius = 50.01
+
+[node name="BoomBox" type="Node2D" unique_id=1070650489]
+script = ExtResource("1_script")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=14641742]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_tdb8i")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=667805687]
+stream = ExtResource("2_6i3w5")
+max_distance = 500.0
+
+[node name="ClickArea" type="Area2D" parent="." unique_id=222331167]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickArea" unique_id=2013598814]
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_wkqmm")
+
+[node name="Label" type="Label" parent="." unique_id=1389755722]
+offset_left = -4.0
+offset_top = -32.0
+offset_right = 5.0
+offset_bottom = -9.0
+text = "F"
+
+[node name="ToggleSFX" type="AudioStreamPlayer2D" parent="." unique_id=987654321]
+stream = ExtResource("3_bleep")
